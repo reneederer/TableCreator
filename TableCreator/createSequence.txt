@@ -1,0 +1,28 @@
+﻿PROMPT SEQUENZ SEQ_{{TableName}}_NR
+--                                                        SIGMA GmbH Erlangen
+-- Projekt: SENSO ORACLE
+-- Inhalt : Erzeugung und Beschreibung der Sequenz SEQ_{{TableName}}_NR
+---
+-- Beschreibung:
+-- Primärschlüsselversorgung der Tabelle {{TableName}}.
+---
+-- Historie:
+---
+-- 19.11.18 {{UserName}} Erstellt
+-----------------------------------------------------------------------------
+drop sequence SEQ_{{TableName}}_NR;
+
+DECLARE
+  ret number;
+  cmd varchar2(100);
+BEGIN
+  select nvl(max(nr),0)+1 into ret from {{TableName}};
+  if ret > 999999999999 or ret < 1 then
+    ret := 1;
+  end if;
+  cmd:=  'CREATE SEQUENCE SEQ_{{TableName}}_NR start with '
+        || to_char(ret) || ' minvalue 1 maxvalue 999999999999 NOCACHE';
+  execute immediate cmd;
+END;
+/
+-- Ende des Scripts.

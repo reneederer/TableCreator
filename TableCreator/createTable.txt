@@ -1,0 +1,21 @@
+﻿--                                                        SIGMA GmbH Erlangen
+-- Projekt: SENSO ORACLE
+-- Inhalt : Erzeugung und Beschreibung der Tabelle {{TableName}}
+---
+-- Beschreibung:
+-- {{FullTableName}}
+-- 1 Datensatz pro {{FullTableName}}
+---
+-- Historie:
+---
+-- 19.11.18 {{UserName}} Neu erstellt
+----------------------------------------------------------------------------------
+CREATE TABLE {{TableName}} (
+{{Columns}}
+);
+
+COMMENT ON TABLE {{TableName}} IS
+'{{FullTableName}}
+Skript: HT{{TableName}}_V7.SQL';
+
+-- Ende des Scripts.

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0"?>
+<config userName="EDE">
+  <table name="VERPROBUNG" fullName="Verprobung">
+    <column name="NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="eindeutige Nr. (PK)"></column>
+    <column name="PROBEABRECH_NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PROBEABRECH)"></column>
+    <column name="PFLSTA_NR " type="NUMBER(10)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PFLSTA)"></column>
+    <column name="QUITDATUM " type="DATE" Nullable="NOT NULL" COMMENT="Quittierungs-Datum"></column>
+    <column name="TITEL " type="VARCHAR2(100)" Nullable="NOT NULL" COMMENT="Titel"></column>
+    <column name="MANDANT_NR " type="NUMBER(5)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(KENMDT), für Policy-Mandant"></column>
+  </table>
+  <table name="FIBELE_SOLL" fullName="Fibele">
+    <column name="NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="eindeutige Nr. (PK)"></column>
+    <column name="PROBEABRECH_NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PROBEABRECH)"></column>
+    <column name="PFLSTA_NR " type="NUMBER(10)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PFLSTA)"></column>
+    <column name="QUITDATUM " type="DATE" Nullable="NOT NULL" COMMENT="Quittierungs-Datum"></column>
+    <column name="TITEL " type="VARCHAR2(100)" Nullable="NOT NULL" COMMENT="Titel"></column>
+    <column name="MANDANT_NR " type="NUMBER(5)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(KENMDT), für Policy-Mandant"></column>
+    <copyFrom tableName="FIBELE">
+      <ignoreColumn>nr</ignoreColumn>
+    </copyFrom>
+  </table>
+  <table name="FIBERE" fullName="Fibere">
+    <column name="NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="eindeutige Nr. (PK)"></column>
+    <column name="PROBEABRECH_NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PROBEABRECH)"></column>
+    <column name="PFLSTA_NR " type="NUMBER(10)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PFLSTA)"></column>
+    <column name="QUITDATUM " type="DATE" Nullable="NOT NULL" COMMENT="Quittierungs-Datum"></column>
+    <column name="TITEL " type="VARCHAR2(100)" Nullable="NOT NULL" COMMENT="Titel"></column>
+    <column name="MANDANT_NR " type="NUMBER(5)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(KENMDT), für Policy-Mandant"></column>
+    <copyFrom tableName="FIBERE">
+      <ignoreColumn>nr</ignoreColumn>
+    </copyFrom>
+  </table>
+  <table name="FIBEBE" fullName="Fibebe">
+    <column name="NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="eindeutige Nr. (PK)"></column>
+    <column name="PROBEABRECH_NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PROBEABRECH)"></column>
+    <column name="PFLSTA_NR " type="NUMBER(10)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PFLSTA)"></column>
+    <column name="QUITDATUM " type="DATE" Nullable="NOT NULL" COMMENT="Quittierungs-Datum"></column>
+    <column name="TITEL " type="VARCHAR2(100)" Nullable="NOT NULL" COMMENT="Titel"></column>
+    <column name="MANDANT_NR " type="NUMBER(5)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(KENMDT), für Policy-Mandant"></column>
+    <copyFrom tableName="FIBEBE">
+      <ignoreColumn>nr</ignoreColumn>
+    </copyFrom>
+  </table>
+  <table name="FIBEAB" fullName="Fibeab">
+    <column name="NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="eindeutige Nr. (PK)"></column>
+    <column name="PROBEABRECH_NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PROBEABRECH)"></column>
+    <column name="PFLSTA_NR " type="NUMBER(10)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PFLSTA)"></column>
+    <column name="QUITDATUM " type="DATE" Nullable="NOT NULL" COMMENT="Quittierungs-Datum"></column>
+    <column name="TITEL " type="VARCHAR2(100)" Nullable="NOT NULL" COMMENT="Titel"></column>
+    <column name="MANDANT_NR " type="NUMBER(5)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(KENMDT), für Policy-Mandant"></column>
+    <copyFrom tableName="FIBEAB">
+      <ignoreColumn>nr</ignoreColumn>
+    </copyFrom>
+  </table>
+  <table name="FIBEUE" fullName="Fibeue">
+    <column name="NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="eindeutige Nr. (PK)"></column>
+    <column name="PROBEABRECH_NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PROBEABRECH)"></column>
+    <column name="PFLSTA_NR " type="NUMBER(10)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PFLSTA)"></column>
+    <column name="QUITDATUM " type="DATE" Nullable="NOT NULL" COMMENT="Quittierungs-Datum"></column>
+    <column name="TITEL " type="VARCHAR2(100)" Nullable="NOT NULL" COMMENT="Titel"></column>
+    <column name="MANDANT_NR " type="NUMBER(5)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(KENMDT), für Policy-Mandant"></column>
+    <copyFrom tableName="FIBEUE">
+      <ignoreColumn>nr</ignoreColumn>
+    </copyFrom>
+  </table>
+  <table name="FIBELP" fullName="Fibelp">
+    <column name="NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="eindeutige Nr. (PK)"></column>
+    <column name="PROBEABRECH_NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PROBEABRECH)"></column>
+    <column name="PFLSTA_NR " type="NUMBER(10)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PFLSTA)"></column>
+    <column name="QUITDATUM " type="DATE" Nullable="NOT NULL" COMMENT="Quittierungs-Datum"></column>
+    <column name="TITEL " type="VARCHAR2(100)" Nullable="NOT NULL" COMMENT="Titel"></column>
+    <column name="MANDANT_NR " type="NUMBER(5)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(KENMDT), für Policy-Mandant"></column>
+    <copyFrom tableName="FIBELP">
+      <ignoreColumn>nr</ignoreColumn>
+    </copyFrom>
+  </table>
+  <table name="VABELP" fullName="Vabelp">
+    <column name="NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="eindeutige Nr. (PK)"></column>
+    <column name="PROBEABRECH_NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PROBEABRECH)"></column>
+    <column name="PFLSTA_NR " type="NUMBER(10)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PFLSTA)"></column>
+    <column name="QUITDATUM " type="DATE" Nullable="NOT NULL" COMMENT="Quittierungs-Datum"></column>
+    <column name="TITEL " type="VARCHAR2(100)" Nullable="NOT NULL" COMMENT="Titel"></column>
+    <column name="MANDANT_NR " type="NUMBER(5)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(KENMDT), für Policy-Mandant"></column>
+    <copyFrom tableName="VABELP">
+      <ignoreColumn>nr</ignoreColumn>
+    </copyFrom>
+  </table>
+</config>
+
+
+
+
+
+
+
