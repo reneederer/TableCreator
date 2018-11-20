@@ -1,88 +1,119 @@
 ﻿<?xml version="1.0"?>
 <config userName="EDE">
   <table name="VERPROBUNG" fullName="Verprobung">
-    <column name="NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="eindeutige Nr. (PK)"></column>
-    <column name="PROBEABRECH_NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PROBEABRECH)"></column>
-    <column name="PFLSTA_NR " type="NUMBER(10)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PFLSTA)"></column>
-    <column name="QUITDATUM " type="DATE" Nullable="NOT NULL" COMMENT="Quittierungs-Datum"></column>
-    <column name="TITEL " type="VARCHAR2(100)" Nullable="NOT NULL" COMMENT="Titel"></column>
-    <column name="MANDANT_NR " type="NUMBER(5)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(KENMDT), für Policy-Mandant"></column>
+    <column name="NR" type="NUMBER(12)" nullable="NOT NULL" comment="eindeutige Nr. (PK)"></column>
+    <column name="PROBEABRECH_NR" type="NUMBER(12)" nullable="NOT NULL" fkTable="PROBEABRECH" fkColumn="nr" comment="Foreign key zu nr(PROBEABRECH)"></column>
+    <column name="PFLSTA_NR " type="NUMBER(10)" nullable="NOT NULL" fkTable="PFLSTA" fkColumn="nr" comment="Foreign key zu nr(PFLSTA)"></column>
+    <column name="QUITDATUM " type="DATE" nullable="NOT NULL" comment="Quittierungs-Datum"></column>
+    <column name="TITEL " type="VARCHAR2(100)" nullable="NOT NULL" comment="Titel"></column>
+    <column name="MANDANT_NR " type="NUMBER(5)" nullable="NOT NULL" fkTable="KENMDT" fkColumn="nr" comment="Foreign key zu nr(KENMDT), für Policy-Mandant"></column>
   </table>
-  <table name="FIBELE_SOLL" fullName="Fibele">
-    <column name="NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="eindeutige Nr. (PK)"></column>
-    <column name="PROBEABRECH_NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PROBEABRECH)"></column>
-    <column name="PFLSTA_NR " type="NUMBER(10)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PFLSTA)"></column>
-    <column name="QUITDATUM " type="DATE" Nullable="NOT NULL" COMMENT="Quittierungs-Datum"></column>
-    <column name="TITEL " type="VARCHAR2(100)" Nullable="NOT NULL" COMMENT="Titel"></column>
-    <column name="MANDANT_NR " type="NUMBER(5)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(KENMDT), für Policy-Mandant"></column>
+
+  <table name="FIBELE_SOLL" fullName="Fibele_Soll">
+    <column name="NR" type="NUMBER(12)" nullable="NOT NULL" comment="eindeutige Nr. (PK)"></column>
+    <column name="VERPROBUNG_NR" type="NUMBER(5)" nullable="NOT NULL" fkTable="VERPROBUNG" fkColumn="nr" comment="Foreign key zu nr(VERPROBUNG)"></column>
     <copyFrom tableName="FIBELE">
-      <ignoreColumn>nr</ignoreColumn>
+      <remapColumn oldName="nr" newName="FIBELE_NR" newComment="Foreign key zu nr(FIBELE)" createForeignKey="false" createIndex="false"/>
     </copyFrom>
   </table>
-  <table name="FIBERE" fullName="Fibere">
-    <column name="NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="eindeutige Nr. (PK)"></column>
-    <column name="PROBEABRECH_NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PROBEABRECH)"></column>
-    <column name="PFLSTA_NR " type="NUMBER(10)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PFLSTA)"></column>
-    <column name="QUITDATUM " type="DATE" Nullable="NOT NULL" COMMENT="Quittierungs-Datum"></column>
-    <column name="TITEL " type="VARCHAR2(100)" Nullable="NOT NULL" COMMENT="Titel"></column>
-    <column name="MANDANT_NR " type="NUMBER(5)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(KENMDT), für Policy-Mandant"></column>
+  <table name="FIBELE_IST" fullName="Fibele_Ist">
+    <column name="NR" type="NUMBER(12)" nullable="NOT NULL" comment="eindeutige Nr. (PK)"></column>
+    <column name="VERPROBUNG_NR" type="NUMBER(5)" nullable="NOT NULL" fkTable="VERPROBUNG" fkColumn="nr"  comment="Foreign key zu nr(VERPROBUNG)"></column>
+    <copyFrom tableName="FIBELE">
+      <remapColumn oldName="nr" newName="FIBELE_NR" newComment="Foreign key zu nr(FIBELE)" createForeignKey="false" createIndex="false"/>
+    </copyFrom>
+  </table>
+
+  <table name="FIBERE_SOLL" fullName="Fibere_Soll">
+    <column name="NR" type="NUMBER(12)" nullable="NOT NULL" comment="eindeutige Nr. (PK)"></column>
+    <column name="VERPROBUNG_NR" type="NUMBER(5)" nullable="NOT NULL" fkTable="VERPROBUNG" fkColumn="nr"  comment="Foreign key zu nr(VERPROBUNG)"></column>
     <copyFrom tableName="FIBERE">
-      <ignoreColumn>nr</ignoreColumn>
+      <remapColumn oldName="nr" newName="FIBERE_NR" newComment="Foreign key zu nr(FIBERE)" createForeignKey="false" createIndex="false"/>
     </copyFrom>
   </table>
-  <table name="FIBEBE" fullName="Fibebe">
-    <column name="NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="eindeutige Nr. (PK)"></column>
-    <column name="PROBEABRECH_NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PROBEABRECH)"></column>
-    <column name="PFLSTA_NR " type="NUMBER(10)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PFLSTA)"></column>
-    <column name="QUITDATUM " type="DATE" Nullable="NOT NULL" COMMENT="Quittierungs-Datum"></column>
-    <column name="TITEL " type="VARCHAR2(100)" Nullable="NOT NULL" COMMENT="Titel"></column>
-    <column name="MANDANT_NR " type="NUMBER(5)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(KENMDT), für Policy-Mandant"></column>
+
+  <table name="FIBERE_IST" fullName="Fibere_Ist">
+    <column name="NR" type="NUMBER(12)" nullable="NOT NULL" comment="eindeutige Nr. (PK)"></column>
+    <column name="VERPROBUNG_NR" type="NUMBER(5)" nullable="NOT NULL" fkTable="VERPROBUNG" fkColumn="nr"  comment="Foreign key zu nr(VERPROBUNG)"></column>
+    <copyFrom tableName="FIBERE">
+      <remapColumn oldName="nr" newName="FIBERE_NR" newComment="Foreign key zu nr(FIBERE)" createForeignKey="false" createIndex="false"/>
+    </copyFrom>
+  </table>
+  <table name="FIBEBE_SOLL" fullName="Fibebe_Soll">
+    <column name="NR" type="NUMBER(12)" nullable="NOT NULL" comment="eindeutige Nr. (PK)"></column>
+    <column name="VERPROBUNG_NR" type="NUMBER(12)" nullable="NOT NULL" fkTable="VERPROBUNG" fkColumn="nr" comment="Foreign key zu nr(VERPROBUNG)"></column>
     <copyFrom tableName="FIBEBE">
-      <ignoreColumn>nr</ignoreColumn>
+      <remapColumn oldName="nr" newName="FIBEBE_NR" newComment="Foreign key zu nr(FIBEBE)" createForeignKey="false" createIndex="false"/>
     </copyFrom>
   </table>
-  <table name="FIBEAB" fullName="Fibeab">
-    <column name="NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="eindeutige Nr. (PK)"></column>
-    <column name="PROBEABRECH_NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PROBEABRECH)"></column>
-    <column name="PFLSTA_NR " type="NUMBER(10)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PFLSTA)"></column>
-    <column name="QUITDATUM " type="DATE" Nullable="NOT NULL" COMMENT="Quittierungs-Datum"></column>
-    <column name="TITEL " type="VARCHAR2(100)" Nullable="NOT NULL" COMMENT="Titel"></column>
-    <column name="MANDANT_NR " type="NUMBER(5)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(KENMDT), für Policy-Mandant"></column>
+
+  <table name="FIBEBE_IST" fullName="Fibebe_Ist">
+    <column name="NR" type="NUMBER(12)" nullable="NOT NULL" comment="eindeutige Nr. (PK)"></column>
+    <column name="VERPROBUNG_NR" type="NUMBER(12)" nullable="NOT NULL" fkTable="VERPROBUNG" fkColumn="nr" comment="Foreign key zu nr(VERPROBUNG)"></column>
+    <copyFrom tableName="FIBEBE">
+      <remapColumn oldName="nr" newName="FIBEBE_NR" newComment="Foreign key zu nr(FIBEBE)" createForeignKey="false" createIndex="false"/>
+    </copyFrom>
+  </table>
+
+  <table name="FIBEAB_SOLL" fullName="Fibeab_Soll">
+    <column name="NR" type="NUMBER(12)" nullable="NOT NULL" comment="eindeutige Nr. (PK)"></column>
+    <column name="VERPROBUNG_NR" type="NUMBER(12)" nullable="NOT NULL" fkTable="VERPROBUNG" fkColumn="nr" comment="Foreign key zu nr(VERPROBUNG)"></column>
     <copyFrom tableName="FIBEAB">
-      <ignoreColumn>nr</ignoreColumn>
+      <remapColumn oldName="nr" newName="FIBEAB_NR" newComment="Foreign key zu nr(FIBEAB)" createForeignKey="false" createIndex="false"/>
     </copyFrom>
   </table>
-  <table name="FIBEUE" fullName="Fibeue">
-    <column name="NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="eindeutige Nr. (PK)"></column>
-    <column name="PROBEABRECH_NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PROBEABRECH)"></column>
-    <column name="PFLSTA_NR " type="NUMBER(10)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PFLSTA)"></column>
-    <column name="QUITDATUM " type="DATE" Nullable="NOT NULL" COMMENT="Quittierungs-Datum"></column>
-    <column name="TITEL " type="VARCHAR2(100)" Nullable="NOT NULL" COMMENT="Titel"></column>
-    <column name="MANDANT_NR " type="NUMBER(5)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(KENMDT), für Policy-Mandant"></column>
+
+  <table name="FIBEAB_IST" fullName="Fibeab_Ist">
+    <column name="NR" type="NUMBER(12)" nullable="NOT NULL" comment="eindeutige Nr. (PK)"></column>
+    <column name="VERPROBUNG_NR" type="NUMBER(12)" nullable="NOT NULL" fkTable="VERPROBUNG" fkColumn="nr" comment="Foreign key zu nr(VERPROBUNG)"></column>
+    <copyFrom tableName="FIBEAB">
+      <remapColumn oldName="nr" newName="FIBEAB_NR" newComment="Foreign key zu nr(FIBEAB)" createForeignKey="false" createIndex="false"/>
+    </copyFrom>
+  </table>
+
+  <table name="FIBEUE_SOLL" fullName="Fibeue_Soll">
+    <column name="NR" type="NUMBER(12)" nullable="NOT NULL" comment="eindeutige Nr. (PK)"></column>
+    <column name="VERPROBUNG_NR" type="NUMBER(12)" nullable="NOT NULL" fkTable="VERPROBUNG" fkColumn="nr" comment="Foreign key zu nr(VERPROBUNG)"></column>
     <copyFrom tableName="FIBEUE">
-      <ignoreColumn>nr</ignoreColumn>
+      <remapColumn oldName="nr" newName="FIBEUE_NR" newComment="Foreign key zu nr(FIBEUE)" createForeignKey="false" createIndex="false"/>
     </copyFrom>
   </table>
-  <table name="FIBELP" fullName="Fibelp">
-    <column name="NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="eindeutige Nr. (PK)"></column>
-    <column name="PROBEABRECH_NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PROBEABRECH)"></column>
-    <column name="PFLSTA_NR " type="NUMBER(10)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PFLSTA)"></column>
-    <column name="QUITDATUM " type="DATE" Nullable="NOT NULL" COMMENT="Quittierungs-Datum"></column>
-    <column name="TITEL " type="VARCHAR2(100)" Nullable="NOT NULL" COMMENT="Titel"></column>
-    <column name="MANDANT_NR " type="NUMBER(5)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(KENMDT), für Policy-Mandant"></column>
+
+  <table name="FIBEUE_IST" fullName="Fibeue_Ist">
+    <column name="NR" type="NUMBER(12)" nullable="NOT NULL" comment="eindeutige Nr. (PK)"></column>
+    <column name="VERPROBUNG_NR" type="NUMBER(12)" nullable="NOT NULL" fkTable="VERPROBUNG" fkColumn="nr" comment="Foreign key zu nr(PROBEABRECH)"></column>
+    <copyFrom tableName="FIBEUE">
+      <remapColumn oldName="nr" newName="FIBEUE_NR" newComment="Foreign key zu nr(FIBEUE)" createForeignKey="false" createIndex="false"/>
+    </copyFrom>
+  </table>
+
+  <table name="FIBELP_SOLL" fullName="Fibelp_Soll">
+    <column name="NR" type="NUMBER(12)" nullable="NOT NULL" comment="eindeutige Nr. (PK)"></column>
+    <column name="VERPROBUNG_NR" type="NUMBER(12)" nullable="NOT NULL" fkTable="VERPROBUNG" fkColumn="nr" comment="Foreign key zu nr(PROBEABRECH)"></column>
     <copyFrom tableName="FIBELP">
-      <ignoreColumn>nr</ignoreColumn>
+      <remapColumn oldName="nr" newName="FIBELP_NR" newComment="Foreign key zu nr(FIBELP)" createForeignKey="false" createIndex="false"/>
     </copyFrom>
   </table>
-  <table name="VABELP" fullName="Vabelp">
-    <column name="NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="eindeutige Nr. (PK)"></column>
-    <column name="PROBEABRECH_NR" type="NUMBER(12)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PROBEABRECH)"></column>
-    <column name="PFLSTA_NR " type="NUMBER(10)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(PFLSTA)"></column>
-    <column name="QUITDATUM " type="DATE" Nullable="NOT NULL" COMMENT="Quittierungs-Datum"></column>
-    <column name="TITEL " type="VARCHAR2(100)" Nullable="NOT NULL" COMMENT="Titel"></column>
-    <column name="MANDANT_NR " type="NUMBER(5)" Nullable="NOT NULL" COMMENT="Foreign key zu nr(KENMDT), für Policy-Mandant"></column>
+  <table name="FIBELP_IST" fullName="Fibelp_Ist">
+    <column name="NR" type="NUMBER(12)" nullable="NOT NULL" comment="eindeutige Nr. (PK)"></column>
+    <column name="VERPROBUNG_NR" type="NUMBER(12)" nullable="NOT NULL" fkTable="VERPROBUNG" fkColumn="nr" comment="Foreign key zu nr(PROBEABRECH)"></column>
+    <copyFrom tableName="FIBELP">
+      <remapColumn oldName="nr" newName="FIBELP_NR" newComment="Foreign key zu nr(FIBELP)" createForeignKey="false" createIndex="false"/>
+    </copyFrom>
+  </table>
+  <table name="VABELP_SOLL" fullName="Vabelp_Soll">
+    <column name="NR" type="NUMBER(12)" nullable="NOT NULL" comment="eindeutige Nr. (PK)"></column>
+    <column name="VERPROBUNG_NR" type="NUMBER(12)" nullable="NOT NULL" fkTable="VERPROBUNG" fkColumn="nr" comment="Foreign key zu nr(PROBEABRECH)"></column>
     <copyFrom tableName="VABELP">
-      <ignoreColumn>nr</ignoreColumn>
+      <remapColumn oldName="nr" newName="VABELP_NR" newComment="Foreign key zu nr(VABELP)" createForeignKey="false" createIndex="false"/>
+    </copyFrom>
+  </table>
+
+  <table name="VABELP_IST" fullName="Vabelp_Ist">
+    <column name="NR" type="NUMBER(12)" nullable="NOT NULL" comment="eindeutige Nr. (PK)"></column>
+    <column name="VERPROBUNG_NR" type="NUMBER(12)" nullable="NOT NULL" fkTable="VERPROBUNG" fkColumn="nr" comment="Foreign key zu nr(PROBEABRECH)"></column>
+    <copyFrom tableName="VABELP">
+      <remapColumn oldName="nr" newName="VABELP_NR" newComment="Foreign key zu nr(VABELP)" createForeignKey="false" createIndex="false"/>
     </copyFrom>
   </table>
 </config>

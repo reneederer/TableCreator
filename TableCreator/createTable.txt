@@ -8,7 +8,7 @@
 ---
 -- Historie:
 ---
--- 19.11.18 {{UserName}} Neu erstellt
+-- {{CurrentDate}} {{UserName}} Neu erstellt
 ----------------------------------------------------------------------------------
 CREATE TABLE {{TableName}} (
 {{Columns}}

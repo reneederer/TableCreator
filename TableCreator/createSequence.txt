@@ -8,7 +8,7 @@
 ---
 -- Historie:
 ---
--- 19.11.18 {{UserName}} Erstellt
+-- {{CurrentDate}} {{UserName}} Erstellt
 -----------------------------------------------------------------------------
 drop sequence SEQ_{{TableName}}_NR;
 
